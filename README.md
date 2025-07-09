@@ -1,8 +1,8 @@
 # 📘 Curso: *Diseño de Software*
 
-**Profesor:** Prof. \[Jonathan Solis]
+**Profesor:** Prof. Jonathan Solis
 **Semestre:** 2025
-**Institución:** \[TEC]
+**Institución:** TEC
 
 ---
 
