@@ -3,6 +3,8 @@
 **Profesor:** Prof. Jonathan Solis
 **Semestre:** 2025
 **Institución:** TEC
+**Email:** josolis@itcr.ac.cr
+**Telefono:** 87245688
 
 ---
 
@@ -11,17 +13,21 @@
 1. [Descripción del Curso](#descripción-del-curso)
 2. [Programa y Calendario Semanal](#programa-y-calendario-semanal)
 3. [Tareas y Proyectos](#tareas-y-proyectos)
-4. [Lecturas y Recursos](#lecturas-y-recursos)
-5. [Evaluación y Políticas](#evaluación-y-políticas)
+5. [Evaluación](#evaluación)
 6. [Contribuciones y Preguntas](#contribuciones-y-preguntas)
 
 ---
 
 ## 📖 Descripción del Curso
 
-> Este curso ofrece una introducción a [breve descripción del tema].  
-> Se espera que el estudiante tenga conocimientos básicos en [prerrequisitos].  
-> Al finalizar, los alumnos serán capaces de [objetivos de aprendizaje].
+> Este curso ofrece una introducción al Diseño del Software.
+> Al finalizar el curso el estudiante estará en capacidad de:
+> 1. Aplicar técnicas y herramientas orientadas a objetos para la modelación del diseño de software.
+> 2. Documentar la toma de decisiones durante la etapa de diseño del software.
+> 3. Comprender los diferentes niveles de abstracción en que deben expresarse las soluciones de problemas de diseño.
+> 4. Desarrollar destrezas para diseñar la arquitectura de software
+> 5. Analizar aspectos de las tecnologías actuales y de las tendencias tecnológicas que influyen en los diseños del software.
+
 
 ---
 
@@ -29,39 +35,25 @@
 
 | Semana | Tema | Diapositivas / Apuntes | Tareas |
 |--------|------|------------------------|--------|
-| 1 | Introducción al curso y herramientas | [Diapositivas](enlace) | — |
-| 2 | Conceptos básicos | [Apuntes](enlace) | Tarea 1 |
-| 3 | ... | ... | ... |
+| 1 | Introducción al curso y herramientas | [Semana 1](./Semana-1/README.md) |  |
 
-Cada semana se encuentra detallada en la carpeta `/semanas/semana-x`.
+
+Cada semana se encuentra detallada en la carpeta `/Semana-x`.
 
 ---
 
 ## 💻 Tareas y Proyectos
 
-Lista de entregas principales:
-
-- **Tarea 1**: [Algoritmos básicos](tareas/tarea-1.md)  
-- **Proyecto Final**: [Crea tu propio compilador](proyectos/final.md)
-
-Entrega por medio de pull request o subida a la plataforma institucional.
-
+TBD
 ---
 
-## 📚 Lecturas y Recursos
+## 📊 Evaluación
 
-- 📘 *Libro de texto*: [Título, Autor, Edición]  
-- 🔗 [Recursos en línea](recursos.md)  
-- 🧰 Herramientas: Git, Python, [Visual Studio Code](https://code.visualstudio.com/)
+- **Tareas Individuales** – 20%  
+- **Participacion en clase** – 10%  
+- **Estudios de caso (Formato conferencia)** – 20%
+- **Proyectos Practicos** – 50%
 
----
-
-## 📊 Evaluación y Políticas
-
-- **Tareas** – 40%  
-- **Examen Parcial** – 25%  
-- **Proyecto Final** – 35%  
-- **Política de entregas tardías**: [Ver documento de políticas](politicas.md)
 
 ---
 
@@ -73,4 +65,4 @@ Entrega por medio de pull request o subida a la plataforma institucional.
 
 ---
 
-> *Última actualización: [fecha de hoy]*  
+> *Última actualización: 06/08/2025*  
