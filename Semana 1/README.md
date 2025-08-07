@@ -45,4 +45,6 @@ Un arquitecto de software es un profesional encargado de tomar decisiones de alt
 ## For this week:
 - Revisar el programa del curso
 - Unirse al grupo de Whatsapp (Esta en la pagina inicial)
-- 
+-  Investigar sobre buen UX/UI y mal UX/UI
+    - Traer un ejemplo de cada 1 para discutir en clase.
+- Ver video: [Principles of Human-Centered Design (Don Norman)](https://www.youtube.com/watch?v=rmM0kRf8Dbk)
