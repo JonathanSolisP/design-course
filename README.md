@@ -1,10 +1,8 @@
 # 📘 Curso: *Diseño de Software*
 
-**Profesor:** Prof. Jonathan Solis
-**Semestre:** 2025
-**Institución:** TEC
-**Email:** josolis@itcr.ac.cr
-**Telefono:** 87245688
+**Profesor:** Prof. Jonathan Solis |
+**Email:** josolis@itcr.ac.cr |
+**Telefono:** 87245688 |
 
 ---
 
@@ -35,7 +33,7 @@
 
 | Semana | Tema | Diapositivas / Apuntes | Tareas |
 |--------|------|------------------------|--------|
-| 1 | Introducción al curso y herramientas | [Semana 1](./Semana-1/README.md) |  |
+| 1 | Introducción al curso y herramientas | [Semana 1](./Semana%201/README.md) |  |
 
 
 Cada semana se encuentra detallada en la carpeta `/Semana-x`.
