@@ -2,11 +2,11 @@
 
 ## 1. De los requerimientos al diseño
 
-## 2 Pasos para diseñar software
+## 2. Pasos para diseñar software
 
-## 3 Artefactos del diseño de software
+## 3. Artefactos del diseño de software
 
-## 4 El rol del arquitecto de software
+## 4. El rol del arquitecto de software
 
 ## Contenidos de la semana
 
@@ -39,18 +39,9 @@ Un arquitecto de software es un profesional encargado de tomar decisiones de alt
 - Guiar a los equipos de desarrollo y revisar el código para asegurar el cumplimiento de las directrices arquitectónicas.
 - Abordar aspectos de escalabilidad, rendimiento y seguridad en el diseño del sistema.
 
-
-A continuación, puedes ver el video recomendado para esta semana:
-
-### Video recomendado
-
-<video src="./public/videoplayback.webm" controls width="640">
-    Tu navegador no soporta la reproducción de videos.
-</video>
-
-## For this week:
-- Revisar el programa del curso
-- Unirse al grupo de Whatsapp (Esta en la pagina inicial)
--  Investigar sobre buen UX/UI y mal UX/UI
+## Para esta semana:
+- Revisar el programa del curso.
+- Unirse al grupo de Whatsapp (Esta en la pagina inicial).
+-  Investigar sobre buen UX/UI y mal UX/UI.
     - Traer un ejemplo de cada 1 para discutir en clase.
 - Ver video: [Principles of Human-Centered Design (Don Norman)](https://www.youtube.com/watch?v=rmM0kRf8Dbk)
