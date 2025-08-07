@@ -39,8 +39,14 @@ Un arquitecto de software es un profesional encargado de tomar decisiones de alt
 - Guiar a los equipos de desarrollo y revisar el código para asegurar el cumplimiento de las directrices arquitectónicas.
 - Abordar aspectos de escalabilidad, rendimiento y seguridad en el diseño del sistema.
 
-<iframe width="603" height="1072" src="https://www.youtube.com/embed/OM80TWKKTFA" title="Software Architecture Patterns" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
+A continuación, puedes ver el video recomendado para esta semana:
+
+### Video recomendado
+
+<video src="./public/videoplayback.webm" controls width="640">
+    Tu navegador no soporta la reproducción de videos.
+</video>
 
 ## For this week:
 - Revisar el programa del curso
