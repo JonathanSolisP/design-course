@@ -6,6 +6,12 @@
 
 ---
 
+## 📱 Únete al grupo de WhatsApp
+
+Para mantenerte informado y comunicarte con tus compañeros, únete al grupo de WhatsApp usando el siguiente enlace:
+
+[Unirse al grupo de WhatsApp](https://chat.whatsapp.com/GSkYx13eS1VCyzy0B38T5X?mode=ac_t)
+
 ## 🗂️ Tabla de Contenidos
 
 1. [Descripción del Curso](#descripción-del-curso)
