@@ -1,0 +1,35 @@
+# Usar con la extensión "REST Client" de VS Code (o copiar como curl)
+@base = http://localhost:3000/api
+
+### Health
+GET {{base}}/health
+
+### Health de la base de datos
+GET {{base}}/health/db
+
+### Listar tareas
+GET {{base}}/tasks
+
+### Obtener una tarea
+GET {{base}}/tasks/1
+
+### Crear tarea
+POST {{base}}/tasks
+Content-Type: application/json
+
+{ "title": "Preparar la demo", "description": "Ensayar cada paso" }
+
+### Crear tarea inválida (400)
+POST {{base}}/tasks
+Content-Type: application/json
+
+{ "title": "" }
+
+### Marcar como hecha
+PATCH {{base}}/tasks/1
+Content-Type: application/json
+
+{ "done": true }
+
+### Eliminar
+DELETE {{base}}/tasks/1
