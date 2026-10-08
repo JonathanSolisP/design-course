@@ -1,0 +1,130 @@
+TAREA: TASKS API MULTIUSUARIO - PARTES 2, 3 Y 4
+Curso: Diseño de Software - Ing. Jonathan Solís Parajeles - ITCR
+
+Punto de partida: el proyecto tasks-api de la Semana 9, con la autenticación JWT
+(paso 7 del TUTORIAL.md) ya funcionando. Todas las partes deben respetar la
+arquitectura en capas: routes -> controller -> service -> repository.
+
+
+======================================================================
+PARTE 2: TAREAS POR USUARIO
+======================================================================
+Hoy, cualquier usuario con un token válido ve y modifica TODAS las tareas.
+En esta parte cada tarea pasa a tener un dueño, y cada usuario solo puede
+trabajar con las suyas.
+
+¿Qué hay que hacer?
+- Crear el script que agrega la columna user_id a
+  la tabla tasks (llave foránea a users). No se modifican los scripts
+  anteriores.
+- Listar, obtener, crear, actualizar y eliminar deben aplicar únicamente a las
+  tareas del usuario que viene en el token.
+- El user_id SIEMPRE se toma de req.user.id, nunca del body. Si el cliente
+  envía un user_id en el body, se ignora o se rechaza (escoger una opción y
+  justificarla).
+- Si un usuario pide una tarea que existe pero es de otro usuario, la API
+  responde 404 (no 403).
+
+¿Dónde va cada cambio?
+- Controller: solo toma req.user.id y se lo pasa al service.
+- Service: recibe el userId como parámetro, sin saber nada de Express.
+- Repository: agrega el filtro .eq('user_id', userId) a cada consulta.
+- El middleware requireAuth NO se modifica.
+
+¿Cómo sé que está bien?
+Registrar a dos usuarios (ana y beto). Ana crea tareas. Beto hace GET /api/tasks
+y no ve ninguna de Ana; si pide GET /api/tasks/<id de Ana>, recibe 404.
+
+
+======================================================================
+PARTE 3: NUEVO MÓDULO "PROJECTS"
+======================================================================
+
+Un módulo nuevo que permite a cada usuario agrupar sus tareas en proyectos
+(por ejemplo, "Universidad" o "Trabajo"). El objetivo es demostrar que se
+entiende la estructura de un módulo, replicándola sin copiar a ciegas.
+
+Endpoints (todos requieren token):
+  GET    /api/projects       Lista los proyectos del usuario
+  GET    /api/projects/:id   Un proyecto, con la cantidad de tareas pendientes
+                             y hechas
+  POST   /api/projects       Crea un proyecto (name obligatorio, color opcional)
+  PATCH  /api/projects/:id   Actualiza parcialmente
+  DELETE /api/projects/:id   Elimina
+
+¿Qué hay que hacer?
+- Crear la tabla projects (id, user_id, name, color, created_at) en un script
+  SQL nuevo y agregar a tasks la columna project_id (opcional).
+- Crear la carpeta src/modules/projects/ con los mismos archivos que tasks:
+  projects.routes.js, projects.controller.js, projects.service.js,
+  projects.repository.js, projects.schema.js y projects.docs.js.
+- Los proyectos también son por usuario (igual que en la Parte 2).
+- Al crear o actualizar una tarea con projectId, el SERVICE de tareas verifica
+  que ese proyecto exista y sea del mismo usuario. Si no lo es, responde 400 o
+  404 (justificar cuál).
+- Decidir qué pasa con las tareas cuando se borra un proyecto:
+    a) se borran también (on delete cascade),
+    b) quedan sin proyecto (on delete set null), o
+    c) no se permite borrar el proyecto si tiene tareas (409 Conflict).
+  Cualquiera de las tres es válida si está justificada.
+- Documentar el módulo en Swagger con secure(), igual que tasks.
+
+¿Dónde va cada cambio?
+- La regla "el proyecto debe ser del mismo usuario" es de negocio: va en el
+  service, no en el controller ni en el repository.
+- El service de tareas necesita consultar proyectos, así que debe RECIBIR el
+  repository de proyectos por parámetro (inyección de dependencias), no
+  importarlo directamente.
+
+¿Cómo sé que está bien?
+Beto intenta crear una tarea con el projectId de un proyecto de Ana -> error.
+Ana pide GET /api/projects/<id> -> recibe el proyecto con sus conteos.
+
+
+======================================================================
+PARTE 4: FILTROS, ORDEN Y PAGINACIÓN
+======================================================================
+
+Cuando un usuario tiene cientos de tareas, devolverlas todas de una vez no
+sirve. En esta parte GET /api/tasks acepta parámetros en la URL (query string)
+para filtrar, ordenar y paginar.
+
+Ejemplo:
+  GET /api/tasks?done=false&projectId=3&search=demo&sort=created_at&order=asc&page=2&limit=10
+
+Parámetros (todos opcionales):
+  done        true o false
+  projectId   solo las tareas de ese proyecto
+  search      texto contenido en el título (sin distinguir mayúsculas)
+  sort        created_at o title
+  order       asc o desc
+  page        número de página, empieza en 1 (por defecto 1)
+  limit       tareas por página, máximo 50 (por defecto 20)
+
+¿Qué hay que hacer?
+- Crear en tasks.schema.js un schema de zod para los parámetros
+  (listTasksQuery), con conversiones (z.coerce), valores por defecto y límites.
+- Cualquier valor inválido (limit=500, done=quizas, sort=password) debe
+  responder 400 con details, igual que los demás errores de validación.
+- La respuesta cambia de forma:
+    { "data": [ ...tareas... ], "page": 2, "limit": 10, "total": 37 }
+  El total es la cantidad de tareas que cumplen el filtro, no la cantidad de
+  la página.
+- Los parámetros deben aparecer en Swagger GENERADOS desde el schema de zod,
+  no escritos a mano (una sola fuente de verdad).
+
+¿Dónde va cada cambio?
+- Schema: define y valida los parámetros.
+- Service: recibe los filtros ya validados y arma la respuesta con data,
+  page, limit y total.
+- Repository: traduce los filtros a Supabase (.eq, .ilike, .order, .range y
+  select con { count: 'exact' }).
+
+OJO: el middleware validate hace req[source] = result.data. En Express 5,
+req.query es de solo lectura, así que eso no funciona para 'query'. Hay que
+resolverlo sin romper los usos actuales del middleware (por ejemplo, guardando
+el resultado en req.validated).
+
+¿Cómo sé que está bien?
+Ana tiene 3 tareas pendientes. GET /api/tasks?done=false&limit=2 devuelve
+2 tareas en data y total: 3. GET /api/tasks?limit=500 devuelve 400.
