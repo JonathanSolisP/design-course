@@ -1,0 +1,16 @@
+<!doctype html>
+<meta charset="utf-8">
+<title>Tareas en vivo</title>
+<h1>Tareas en vivo</h1>
+<ul id="log"></ul>
+<script>
+  const log = document.getElementById('log');
+  const source = new EventSource('/api/tasks/stream');
+
+  source.onmessage = (e) => {
+    const { type, task } = JSON.parse(e.data);
+    const li = document.createElement('li');
+    li.textContent = `${type}: #${task.id} ${task.title ?? ''}`;
+    log.prepend(li);
+  };
+</script>
