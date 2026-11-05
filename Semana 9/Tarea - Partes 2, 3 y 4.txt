@@ -1,10 +1,5 @@
-TAREA: TASKS API MULTIUSUARIO - PARTES 2, 3 Y 4
+TAREA: JWT
 Curso: Diseño de Software - Ing. Jonathan Solís Parajeles - ITCR
-
-Punto de partida: el proyecto tasks-api de la Semana 9, con la autenticación JWT
-(paso 7 del TUTORIAL.md) ya funcionando. Todas las partes deben respetar la
-arquitectura en capas: routes -> controller -> service -> repository.
-
 
 ======================================================================
 PARTE 2: TAREAS POR USUARIO

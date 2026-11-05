@@ -1,0 +1,6 @@
+LABORATORIO DE SISTEMAS EMBEBIDOS · Manual de uso
+
+1. Usar pulsera antiestática al manipular placas.
+2. Apagar las fuentes antes de cambiar conexiones.
+3. Los osciloscopios no salen del laboratorio.
+4. Devolver los kits completos al estante asignado.

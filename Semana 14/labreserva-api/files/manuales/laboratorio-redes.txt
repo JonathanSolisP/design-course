@@ -1,0 +1,7 @@
+LABORATORIO DE REDES · Manual de uso
+
+1. Registrar la entrada en la bitácora.
+2. No mover equipos entre racks sin autorización.
+3. Al terminar, restaurar la configuración de fábrica de los switches:
+   write erase · reload
+4. Reportar cualquier daño con un comentario en LabReserva.

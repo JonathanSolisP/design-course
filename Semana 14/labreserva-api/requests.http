@@ -1,0 +1,44 @@
+# Usar con la extensión "REST Client" de VS Code (o copiar como curl)
+@base = http://localhost:3000/api
+
+### Health
+GET {{base}}/health
+
+### Login con la cuenta de prueba (copiar el token en @token)
+POST {{base}}/auth/login
+Content-Type: application/json
+
+{ "email": "ana@labreserva.test", "password": "ana12345" }
+
+###
+@token = pegar-aqui-el-token
+
+### Mi perfil
+GET {{base}}/users/me
+Authorization: Bearer {{token}}
+
+### Laboratorios
+GET {{base}}/labs
+
+### Buscar laboratorios
+GET {{base}}/labs?search=Redes
+
+### Un laboratorio con sus comentarios
+GET {{base}}/labs/1
+
+### Mis reservas
+GET {{base}}/reservations
+Authorization: Bearer {{token}}
+
+### Reservar
+POST {{base}}/reservations
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{ "labId": 1, "date": "2026-11-20", "startHour": 14, "endHour": 16, "purpose": "Repaso para el examen" }
+
+### Manuales disponibles
+GET {{base}}/files
+
+### Descargar un manual
+GET {{base}}/files?name=laboratorio-redes.txt

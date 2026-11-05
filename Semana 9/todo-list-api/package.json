@@ -1,0 +1,22 @@
+{
+  "name": "todo-list-api",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "node --watch --env-file=.env src/server.js",
+    "start": "node --env-file=.env src/server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@supabase/supabase-js": "^2.117.2",
+    "cors": "^2.8.6",
+    "express": "^5.2.1",
+    "morgan": "^1.12.1",
+    "zod": "^4.6.5"
+  }
+}

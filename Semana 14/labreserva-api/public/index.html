@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>LabReserva</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+    <h1>LabReserva</h1>
+    <div id="session"></div>
+  </header>
+
+  <main>
+    <section id="login-section" class="card">
+      <h2>Iniciar sesión</h2>
+      <form id="login-form">
+        <input name="email" type="email" placeholder="Email" required>
+        <input name="password" type="password" placeholder="Contraseña" required>
+        <button>Entrar</button>
+      </form>
+      <p id="login-error" class="error"></p>
+    </section>
+
+    <section class="card">
+      <h2>Laboratorios</h2>
+      <form id="search-form">
+        <input name="search" placeholder="Buscar por nombre o edificio">
+        <button>Buscar</button>
+      </form>
+      <ul id="labs"></ul>
+    </section>
+
+    <section id="lab-section" class="card" hidden>
+      <h2 id="lab-name"></h2>
+      <p id="lab-description"></p>
+      <h3>Comentarios</h3>
+      <ul id="comments"></ul>
+      <form id="comment-form">
+        <textarea name="body" placeholder="Escriba un comentario" required></textarea>
+        <button>Comentar</button>
+      </form>
+    </section>
+
+    <section id="reservations-section" class="card" hidden>
+      <h2>Mis reservas</h2>
+      <ul id="reservations"></ul>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
